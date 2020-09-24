@@ -13,6 +13,10 @@ Metrics/AbcSize:
 
 # Offense count: 1
 # Configuration parameters: IgnoredMethods.
+
+Metrics/BlockLength:
+  Exclude:
+    - './spec/**/*'
 Metrics/CyclomaticComplexity:
   Max: 8
 
