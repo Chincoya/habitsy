@@ -54,9 +54,13 @@ Style/Documentation:
     - 'app/helpers/static_pages_helper.rb'
     - 'app/mailers/application_mailer.rb'
     - 'app/models/application_record.rb'
-    - 'app/models/user.rb'
+    - 'app/models/*'
     - 'config/application.rb'
-    - 'db/migrate/20200924194146_devise_create_users.rb'
+    - 'db/**/*'
+
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - "db/**/*"
 
 # Offense count: 6
 # Cop supports --auto-correct.
@@ -64,6 +68,14 @@ Style/IfUnlessModifier:
   Exclude:
     - 'bin/bundle'
     - 'spec/rails_helper.rb'
+
+Style/NumericLiterals:
+  Exclude:
+    - 'db/**/*'
+    
+Style/StringLiterals:
+  Exclude:
+    - 'db/**/*'
 
 # Offense count: 76
 # Cop supports --auto-correct.
