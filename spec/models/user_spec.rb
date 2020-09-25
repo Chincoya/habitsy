@@ -20,8 +20,38 @@ RSpec.describe User, type: :model do
       expect(user.valid?).to be_falsy
     end
 
+    it 'isn invalid without name' do
+      user = build(:user, name: nil)
+      expect(user.valid?).to be_falsy
+    end
+
     it 'is invalid without password' do
       user = build(:user, email: Faker::Internet.email, password: nil)
+      expect(user.valid?).to be_falsy
+    end
+
+    it 'is invalid with a wrong email format' do
+      user = build(:user, email: 'hellowolrd')
+      expect(user.valid?).to be_falsy
+    end
+
+    it 'is invalid with a short password' do
+      user = build(:user, password: 'pass')
+      expect(user.valid?).to be_falsy
+    end
+
+    it 'is invalid with a looong password' do
+      user = build(:user, password: 'a' * 25)
+      expect(user.valid?).to be_falsy
+    end
+
+    it 'ins invalid with a looong name' do
+      user = build(:user, name: 'Dan ' * 13)
+      expect(user.valid?).to be_falsy
+    end
+
+    it 'is invalid with a name too short' do
+      user = build(:user, name: 'Dan')
       expect(user.valid?).to be_falsy
     end
 
