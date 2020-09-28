@@ -72,7 +72,6 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :view
 end
 
-
 # Shoulda matchers integration with RSpec
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
