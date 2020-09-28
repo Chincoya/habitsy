@@ -15,6 +15,12 @@ RSpec.describe Log, type: :model do
   end
 
   context 'validation' do
+    it { should validate_presence_of(:habit) }
+
+    it { should validate_presence_of(:time) }
+
+    it { should belong_to(:user) }
+
     it 'is failed without parameters' do
       log = Log.new
       expect(log.valid?).to be_falsy
