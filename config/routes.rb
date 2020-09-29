@@ -3,8 +3,10 @@
 Rails.application.routes.draw do
   devise_for :users, path: '',
                      path_names: {
-                       sessions: 'login',
-                       registrations: 'signup'
+                       sign_in: 'login',
+                       sign_out: 'logout',
+                       registrations: 'register',
+                       sign_up: 'signup'
                      },
                      controllers: {
                        sessions: 'users/sessions',
