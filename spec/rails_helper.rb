@@ -69,7 +69,8 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
 
   config.include Devise::Test::ControllerHelpers, type: :controller
-  config.include Devise::Test::ControllerHelpers, type: :request
+  # Uncomment this line if testing Devise requests
+  # config.include Devise::Test::ControllerHelpers, type: :request
 end
 
 # Shoulda matchers integration with RSpec

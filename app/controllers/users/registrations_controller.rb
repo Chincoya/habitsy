@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Controller for creating new users
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
@@ -19,9 +20,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
+      params[:user].delete(:password)
+      params[:user].delete(:password_confirmation)
+    end
+    super
+  end
 
   # DELETE /resource
   # def destroy
@@ -46,7 +51,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: %i[name password password_confirmation])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[name])
+  end
+
+  def user_params
+    params.require(:user).permit(:name, :current_password)
   end
 
   # The path used after sign up.
