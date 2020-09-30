@@ -10,8 +10,8 @@ if Rails.env.production?
 end
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
-require 'devise'
 require 'shoulda-matchers'
+require 'devise'
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
@@ -68,8 +68,9 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   config.include FactoryBot::Syntax::Methods
 
-  config.include Devise::Test::ControllerHelpers, type: :controllers
-  config.include Devise::Test::ControllerHelpers, type: :view
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  # Uncomment this line if testing Devise requests
+  # config.include Devise::Test::ControllerHelpers, type: :request
 end
 
 # Shoulda matchers integration with RSpec

@@ -35,7 +35,10 @@ Metrics/PerceivedComplexity:
 # Configuration parameters: AutoCorrect, EnforcedStyle.
 # SupportedStyles: nested, compact
 Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
   Exclude:
+    - 'app/**/*'
+    - 'config/**/*'
     - 'test/channels/application_cable/connection_test.rb'
     - 'test/test_helper.rb'
 
