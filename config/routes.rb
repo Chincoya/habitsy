@@ -12,6 +12,8 @@ Rails.application.routes.draw do
                        sessions: 'users/sessions',
                        registrations: 'users/registrations'
                      }
+
+  resources :logs, except: %i[show edit update]
   get 'static_pages/home'
 
   root to: 'static_pages#home'

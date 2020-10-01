@@ -1,0 +1,6 @@
+<%= form_with model: @log, local: true do |f| %>
+  <%= f.text_field(:habit, autofocus: true, autocomplete: 'Habit') %>
+  <%= f.number_field(:hours, in: 0..23, step: 1) %>
+  <%= f.number_field(:minutes, in: 0..59, step: 1) %>
+  <%= f.submit 'Create Log' %>
+<% end %>

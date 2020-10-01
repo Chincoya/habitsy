@@ -6,7 +6,6 @@ require 'rails_helper'
 
 RSpec.describe Users::RegistrationsController, type: :controller do
   include Devise::Test::IntegrationHelpers
-
   describe 'GET #new' do
     before do
       @request.env['devise.mapping'] = Devise.mappings[:user]
