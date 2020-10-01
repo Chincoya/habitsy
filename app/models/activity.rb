@@ -6,5 +6,5 @@ class Activity < ApplicationRecord
   validates_associated :user
 
   belongs_to :user
-  has_many :logs
+  has_many :logs, dependent: :destroy
 end
