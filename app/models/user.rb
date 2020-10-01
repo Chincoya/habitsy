@@ -12,8 +12,8 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6, maximum: 24 }, on: :create
   validates :name, presence: true, length: { minimum: 5, maximum: 50 }
 
-  has_many :logs
-  has_many :activities
+  has_many :logs, dependent: :destroy
+  has_many :activities, dependent: :destroy
 
   def create_log_from_hash(params)
     activity = activities.where('habit = ?', params[:habit]).first
