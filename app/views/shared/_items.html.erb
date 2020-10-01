@@ -1,0 +1,16 @@
+<li class="items-entry">
+  <div class="item-details">
+    <div class="item-text">
+      <div class="item-name"><%= itemizables[:habit] %></div>
+      <div class="item-date"><%= date_helper itemizables[:created_at] %></div>
+    </div>
+    <div class="item-app">
+    <% if itemizables[:time] %>
+      <%= to_time_format(itemizables[:time]) %>
+    <% end %>
+  </div>
+  </div>
+  <% if linkable %>
+    <%= link_to nil, itemizables, class: 'item-link-cover' %>
+  <% end %>
+</li>

@@ -1,11 +1,6 @@
-<% unless @logs.empty? %>
-  <ul class="logs-list">
-  <% @logs.each do |log| %>
-    <li class="log-item">
-      <strong><%= log.habit %></strong>
-      <i><%= log.time %></i>
-      <%= link_to  'Delete', log, method: :delete %>
-    </li>
-  <% end %>
-  </ul>
-<% end %>
+<% provide(:title, 'LOGS') %>
+
+<%= render 'shared/dashboard', locals: {itemizable: @logs } %>
+<%= link_to new_log_path, class: 'new-item-link', id: 'new-item-link' do %>
+  <span>NEW LOG</span>
+<%  end %>

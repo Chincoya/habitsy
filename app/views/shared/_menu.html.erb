@@ -1,0 +1,19 @@
+<% if user_signed_in? %>
+<div class='menu-container'>
+  <nav class="menu-poppable" id="menu-poppable" >
+    <div class="menu-user-container">
+      <div class="user-name"><%= current_user.name %></div>
+    </div>
+    <ul class="menu-list">
+      <li class="menu-item">
+        <%= image_tag  "logs_icon.png", class: "menu-list-icon" %>
+        <%= link_to  'My Logs', logs_path %>
+      </li>
+      <li class="menu-item">
+        <%= image_tag  "logout-icon.svg", class: "menu-list-icon" %>
+        <%= link_to  'Logout', destroy_user_session_path, method: :delete %>
+      </li>
+    </ul>
+  </nav>
+</div>
+<% end %>
