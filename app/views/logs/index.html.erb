@@ -1,0 +1,11 @@
+<% unless @logs.empty? %>
+  <ul class="logs-list">
+  <% @logs.each do |log| %>
+    <li class="log-item">
+      <strong><%= log.habit %></strong>
+      <i><%= log.time %></i>
+      <%= link_to  'Delete', log, method: :delete %>
+    </li>
+  <% end %>
+  </ul>
+<% end %>

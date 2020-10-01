@@ -27,7 +27,7 @@ RSpec.describe Log, type: :model do
     end
 
     it 'is failed without user' do
-      log = build(:log)
+      log = build(:log, user: nil)
       expect(log.valid?).to be_falsy
     end
 

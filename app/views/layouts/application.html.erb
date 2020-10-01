@@ -10,6 +10,10 @@
   </head>
 
   <body>
+    <% flash.each do |k, msg| %>
+      <%= msg %>
+      <%= k %>
+    <% end %>
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>

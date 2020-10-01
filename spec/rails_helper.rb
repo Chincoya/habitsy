@@ -70,7 +70,8 @@ RSpec.configure do |config|
 
   config.include Devise::Test::ControllerHelpers, type: :controller
   # Uncomment this line if testing Devise requests
-  # config.include Devise::Test::ControllerHelpers, type: :request
+  config.include Devise::Test::ControllerHelpers, type: :view
+  config.include ControllerMacros, type: :request
 end
 
 # Shoulda matchers integration with RSpec
