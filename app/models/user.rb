@@ -13,4 +13,14 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { minimum: 5, maximum: 50 }
 
   has_many :logs
+  has_many :activities
+
+  def create_log_from_hash(params)
+    activity = activities.where('habit = ?', params[:habit]).first
+    return false unless activity
+
+    logs.create(habit: params[:habit],
+                time: (params[:hours].to_i * 60) + params[:minutes].to_i,
+                activity_id: activity.id)
+  end
 end

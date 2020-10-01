@@ -10,18 +10,23 @@ class LogsController < ApplicationController
 
   # GET logs/new
   def new
+    @activities = current_user.activities.order(habit: :desc).map(&:habit)
+    if @activities.size.zero?
+      flash[:alert] = 'You need an activity first'
+      redirect_to new_activity_path
+    end
     @log = Log.new
   end
 
   # POST logs/
   def create
-    @log = current_user.logs.create to_usable_params(log_params)
-    if @log.valid?
+    @log = current_user.create_log_from_hash(log_params)
+    if @log&.valid?
       flash[:success] = 'Log Created'
       redirect_to logs_path
     else
-      flash.now[:alert] = 'Error creating Log :c'
-      render 'new'
+      flash[:alert] = 'Error creating Log :c'
+      redirect_to new_log_path
     end
   end
 
@@ -40,9 +45,5 @@ class LogsController < ApplicationController
 
   def log_params
     params.require(:log).permit(:habit, :hours, :minutes)
-  end
-
-  def to_usable_params(params)
-    { habit: params[:habit], time: (params[:hours].to_i * 60) + params[:minutes].to_i }
   end
 end

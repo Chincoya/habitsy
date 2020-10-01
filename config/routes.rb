@@ -13,6 +13,7 @@ Rails.application.routes.draw do
                        registrations: 'users/registrations'
                      }
 
+  resources :activities, except: %i[edit update]
   resources :logs, except: %i[show edit update]
   get 'static_pages/home'
 

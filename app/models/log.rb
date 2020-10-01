@@ -8,6 +8,8 @@ class Log < ApplicationRecord
     less_than: 1440
   }
   validates_associated :user
+  validates_associated :activity
 
   belongs_to :user
+  belongs_to :activity
 end

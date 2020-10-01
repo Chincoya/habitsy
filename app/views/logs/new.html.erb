@@ -1,6 +1,27 @@
-<%= form_with model: @log, local: true do |f| %>
-  <%= f.text_field(:habit, autofocus: true, autocomplete: 'Habit') %>
+<!-- <%= form_with model: @log, local: true do |f| %>
+  <%= f.select :habit, options_for_select(@activities) %>
   <%= f.number_field(:hours, in: 0..23, step: 1) %>
   <%= f.number_field(:minutes, in: 0..59, step: 1) %>
   <%= f.submit 'Create Log' %>
+<% end %> -->
+
+<% provide(:title, 'NEW LOG') %>
+
+<%= form_tag '/logs', class: 'form-action', id: 'new_log' do |f| %>
+  <div class="field">
+    <%= label_tag 'habit-select', 'Activity' %>
+    <%= select_tag 'log[habit]', options_for_select(@activities), id: 'group-select', selected: 'None' %>
+  </div>
+  <div class="field">
+    <%= label_tag 'log[hours]', "HH / " %>
+    <%= number_field_tag 'log[hours]', nil, in: 0.0..23.0, step: 1.0, placeholder: '0-24'%>
+  </div>
+  <div class="field">
+      <%= label_tag 'log[minutes]', "MM  " %>
+      <%= number_field_tag 'log[minutes]', nil, in: 0.0..59.0, step: 1.0, placeholder: '0-59' %>
+  </div>
+<% end %>
+
+<% content_for :action_button do %>
+  <%= button_tag 'Next', type: 'submit', class: 'action-button', id: 'form-submit', form: 'new_log' %>
 <% end %>

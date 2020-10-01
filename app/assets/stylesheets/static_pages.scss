@@ -1,7 +1,7 @@
 // Place all the styles related to the static_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-$main-color : #3778c2;
+@import 'global';
 
 .landing-login-container {
   align-items: center;
@@ -12,7 +12,7 @@ $main-color : #3778c2;
   padding-bottom: 10%;
   position: relative;
   width: 100%;
-  z-index: 1100;
+  z-index: 1050;
 }
 
 .landing-icon-container {
@@ -23,6 +23,7 @@ $main-color : #3778c2;
   h2 {
     font-family: 'Montserrat-Bold';
     font-size: 55px;
+    color: $text-color-bold;
   }
 }
 
@@ -37,9 +38,10 @@ $main-color : #3778c2;
     border-radius: 5px;
     height: 45%;
     width: 90%;
+    color: $text-color-bold;
   }
   :first-child {
-    background-color: $main-color;
+    background-color: $text-color-bold;
     color: white;
   }
 }

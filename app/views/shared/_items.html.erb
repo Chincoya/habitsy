@@ -1,8 +1,13 @@
 <li class="items-entry">
   <div class="item-details">
     <div class="item-text">
-      <div class="item-name"><%= itemizables[:habit] %></div>
-      <div class="item-date"><%= date_helper itemizables[:created_at] %></div>
+      <% if date %>
+        <div class="item-name"><%= date_helper itemizables[:created_at] %></div>
+        <div class="item-date"><%= itemizables[:habit] %></div>
+      <% else %>
+        <div class="item-name"><%= itemizables[:habit] %></div>
+        <div class="item-date"></div>
+      <% end %>
     </div>
     <div class="item-app">
     <% if itemizables[:time] %>

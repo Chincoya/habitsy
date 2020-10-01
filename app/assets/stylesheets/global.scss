@@ -1,14 +1,13 @@
-$main-color : #2C302E;
-$secondary-color : #9AE19D;
+$main-color : #EFF9F0;
+$secondary-color : #4D8B31;
+$terciary-color : #132A13;
 $main-background-color: #909590;
 $error-color: #E12B20;
-$text-color-bolder : #434b54;
-$text-color-bold: #555E67;
-$text-color-normal: #878A8F;
-$text-color-light: #989DA3;
-$text-color-lighter: #D7D5D5;
-$menu-gradient: linear-gradient(35deg, rgb(46, 125, 184) 0%, rgb(48, 130, 190) 12.5%, rgb(41, 116, 173) 25%, rgb(23, 64, 110) 75%, rgb(18, 51, 92) 100%);
-$status-gradient: linear-gradient(0deg, rgba(49,134,198,0.9) 0%, rgba(29,54,93,0.4) 100%);
+$text-color-bolder : #132A13;
+$text-color-bold: #132A13;
+$text-color-normal: #132A13;
+$text-color-light: #132A13;
+$text-color-lighter: white;
 $main-box-shadow: -2px 2px 5px 0px rgba(26,26,26,1);
 $item-box-shadow: -2px 2px 3px -1px rgba(200,200,200,1);
 
@@ -63,31 +62,24 @@ a {
 }
 
 .main {
-  background-color: $main-background-color;
+  background-color: $main-color;
   height: 100%;
   left: 0;
   position: relative;
   transition: top 0.5s, left 0.5s, height 0.5s;
   top: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 800;
 
   -webkit-box-shadow: $main-box-shadow;
   -moz-box-shadow: $main-box-shadow;
   box-shadow: $main-box-shadow;
 }
 
-.main-phased {
-  height: 70%;
-  top: 15%;
-  left: 80%;
-  overflow: hidden;
-}
-
 .status-bar {
   padding: 4%;
   align-items: center;
-  background-color: $main-color;
+  background-color: $terciary-color;
   display: flex;
   height: 10%;
   justify-content: space-between;
@@ -153,13 +145,17 @@ a {
 }
 
 .menu-container {
-  background-color: #2C302E;
+  background-color: $terciary-color;
   height: calc(90% - 100px);
   padding-top: 15px;
   position: absolute;
   top: 10%;
   width: 100%;
   z-index: 900;
+
+  -webkit-box-shadow: 3px 4px 2px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 3px 4px 2px 0px rgba(0,0,0,0.75);
+  box-shadow: 3px 4px 2px 0px rgba(0,0,0,0.75);
 }
 
 .menu-poppable {
@@ -183,16 +179,10 @@ a {
   }
 }
 
-/*
-  HERE lies the media query for desktop 'compatibility'.
-  I leave this comment for reviewers and maintainability
-*/
-
 @media (min-width: 992px) {
   .main {
     left: initial;
     right: 0;
-    width: 70%;
     position: absolute;
   }
 
@@ -232,7 +222,7 @@ a {
   color: $text-color-lighter;
   font-family: 'Montserrat-light';
   font-weight: bold;
-  height: 20%;
+  height: 30%;
   .menu-list-icon {
     color: inherit;
     height: 35px;
@@ -296,21 +286,16 @@ a {
 .items-list {
   display: flex;
   flex-direction: column;
-  height: calc(100% - 170px);
+  height: calc(100% - 110px);
   justify-content: start;
   list-style: none;
   overflow-y: scroll;
 }
 
-.items-list-phased {
-  overflow: hidden;
-  height: calc(100% - 70px);
-}
-
 .items-entry {
   align-items: center;
   background-color: $main-color;
-  border-left: 1px solid $text-color-lighter;
+  border-left: 1px solid $text-color-bold;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -326,7 +311,7 @@ a {
   display: flex;
   height: 100%;
   width: 90%;
-  color: $text-color-light;
+  color: $text-color-bold;
 }
 
 @media screen and (min-width: 768px) and (orientation: portrait) {
@@ -349,11 +334,10 @@ a {
 }
 
 .item-name {
-  border-bottom: 1px solid $text-color-lighter;
+  border-bottom: 1px solid $text-color-bold;
   font-family: 'Montserrat-Medium';
   font-weight: bold;
   height: 70%;
-  padding-top: 4%;
   padding-right: 2%;
   width: 100%;
 }
@@ -363,11 +347,10 @@ a {
 }
 
 .item-app {
-  border-bottom: 1px solid $text-color-lighter;
+  border-bottom: 1px solid $text-color-bold;
   font-family: 'Montserrat-Bold';
   font-size: 100%;
   height: 70%;
-  padding-top: 4%;
   width: 30%;
 }
 
@@ -390,11 +373,6 @@ a {
     width: 100%;
   }
 }
-
-.nitem-link-phased {
-  height: 70px;
-}
-
 
 .item-link-cover {
   position: absolute;
