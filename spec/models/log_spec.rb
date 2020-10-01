@@ -6,11 +6,13 @@ RSpec.describe Log, type: :model do
   before(:all) do
     @user = build(:user)
     @user.save
+    @habit = build(:activity, user: @user)
+    @habit.save
   end
 
   context 'Factory' do
     it 'is a valid factory' do
-      expect(build(:log, user: @user).valid?).to be_truthy
+      expect(build(:log, user: @user, activity: @habit).valid?).to be_truthy
     end
   end
 
@@ -20,6 +22,8 @@ RSpec.describe Log, type: :model do
     it { should validate_presence_of(:time) }
 
     it { should belong_to(:user) }
+
+    it { should belong_to(:activity) }
 
     it 'is failed without parameters' do
       log = Log.new

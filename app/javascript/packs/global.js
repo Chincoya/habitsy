@@ -10,5 +10,5 @@ $('#menu-popper').click(() => {
   $('.menu-container').slideToggle()
   $('#menu-bar1').toggleClass('changed-top')
   $('#menu-bar3').toggleClass('changed-bot')
-  $('#menu-bar2').toggleClass('changed-middle')
+  $('#menu-bar2').fadeToggle(40)
 })

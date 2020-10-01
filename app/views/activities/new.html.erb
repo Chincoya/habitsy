@@ -1,0 +1,17 @@
+<% provide(:title, 'NEW HABIT') %>
+
+<!-- <%= form_with model: @activity, local: true do |f| %>
+  <%= f.text_field(:habit, autofocus: true, autocomplete: 'Habit') %>
+  <%= f.submit 'Create Log' %>
+<% end %> -->
+
+<%= form_tag '/activities', class: 'form-action', id: 'new_activity' do |f| %>
+  <div class="field">
+    <%= label_tag 'activity[habit]', 'Habit' %>
+    <%= text_field_tag 'activity[habit]', nil, placeholder: 'Habit name' %>
+  </div>
+<% end %>
+
+<% content_for :action_button do %>
+  <%= button_tag 'Next', type: 'submit', class: 'action-button', id: 'form-submit', form: 'new_activity' %>
+<% end %>

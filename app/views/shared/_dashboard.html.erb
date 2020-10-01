@@ -2,7 +2,7 @@
   <% if locals[:itemizable].length != 0 %>
     <ul class="items-list" id="items-list">
       <%= render partial: 'shared/items', collection: locals[:itemizable],
-        as: :itemizables, locals: { linkable: locals[:linkable] } %>
+        as: :itemizables, locals: { linkable: locals[:linkable], date: locals[:date] } %>
     </ul>
   <% else %>
     <div class="empty-list">

@@ -17,6 +17,7 @@ Metrics/AbcSize:
 Metrics/BlockLength:
   Exclude:
     - './spec/**/*'
+    - 'db/**/*'
 Metrics/CyclomaticComplexity:
   Max: 8
 

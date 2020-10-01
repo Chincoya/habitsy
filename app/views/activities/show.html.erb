@@ -1,0 +1,6 @@
+<% provide(:title, @activity.habit.upcase) %>
+
+<%= render  'shared/dashboard', locals: { itemizable: @logs, date: true } %>
+<%= link_to  new_log_path, class: 'new-item-link', id: 'new-item-link' do %>
+  <span>NEW LOG</span>
+<% end %>

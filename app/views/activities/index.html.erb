@@ -1,0 +1,6 @@
+<% provide(:title, 'HABITS') %>
+
+<%= render  'shared/dashboard', locals: { itemizable: @activities, linkable: true } %>
+<%= link_to  new_activity_path, class: 'new-item-link', id: 'new-item-link' do %>
+  <span>NEW HABIT</span>
+<% end %>
